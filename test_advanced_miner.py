@@ -8,13 +8,9 @@ from datetime import datetime, timedelta
 
 import numpy as np
 import pandas as pd
-from precog.utils.timestamp import to_str
 
-from precog.miners.advanced_miner import (
-    BitcoinPredictor,
-    get_advanced_point_estimate,
-    get_advanced_prediction_interval,
-)
+from precog.miners.advanced_miner import BitcoinPredictor, get_advanced_point_estimate, get_advanced_prediction_interval
+from precog.utils.timestamp import to_str
 
 
 def create_mock_data(days=7, frequency="1s"):
