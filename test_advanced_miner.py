@@ -4,16 +4,17 @@ Test script for the advanced miner prediction system.
 This script tests the advanced miner without running the full Bittensor network.
 """
 
-import os
-import sys
 from datetime import datetime, timedelta
 
 import numpy as np
 import pandas as pd
+from precog.utils.timestamp import to_str
 
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-
-from precog.miners.advanced_miner import BitcoinPredictor, get_advanced_point_estimate, get_advanced_prediction_interval
+from precog.miners.advanced_miner import (
+    BitcoinPredictor,
+    get_advanced_point_estimate,
+    get_advanced_prediction_interval,
+)
 
 
 def create_mock_data(days=7, frequency="1s"):
