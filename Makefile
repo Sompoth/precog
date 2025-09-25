@@ -36,6 +36,19 @@ miner:
 		--vpermit_tao_limit $(VPERMIT_TAO_LIMIT) \
 		--forward_function $(FORWARD_FUNCTION) \
 
+miner_advanced:
+	pm2 start --name $(MINER_NAME)_advanced python3 -- precog/miners/miner.py \
+		--neuron.name $(MINER_NAME)_advanced \
+		--wallet.name $(COLDKEY) \
+		--wallet.hotkey $(MINER_HOTKEY) \
+		--subtensor.chain_endpoint $($(NETWORK)) \
+		--axon.port $(MINER_PORT) \
+		--netuid $(netuid) \
+		--logging.level $(LOGGING_LEVEL) \
+		--timeout $(TIMEOUT) \
+		--vpermit_tao_limit $(VPERMIT_TAO_LIMIT) \
+		--forward_function advanced_miner \
+
 validator:
 
 	# Delete pm2 processes if they're already running
