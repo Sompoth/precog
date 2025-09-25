@@ -364,7 +364,9 @@ def forward(synapse: Challenge, cm: CMData) -> Challenge:
     Advanced forward function with ML-based predictions.
     """
     total_start_time = time.perf_counter()
-    bt.logging.info(f"👈 Received prediction request from: {synapse.dendrite.hotkey} for timestamp: {synapse.timestamp}")
+    bt.logging.info(
+        f"👈 Received prediction request from: {synapse.dendrite.hotkey} for timestamp: {synapse.timestamp}"
+    )
 
     try:
         # Get advanced point estimate
